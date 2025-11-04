@@ -22,6 +22,12 @@ Features include task creation, status updates, filtering, and persistent storag
 ---
 
 
+## 🖼️ Screenshots
+
+![React Task Manager](public/screenshot-main.png)
+
+---
+
 ## 🛠️ Tech Stack
 
 **React (Vite)**
