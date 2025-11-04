@@ -16,7 +16,7 @@ export default function DashboardTemplate({
 }) {
   return (
     <div className="dashboard">
-      <h1 className="header">Task Manager Dashboard</h1>
+      <h1 className="header">React Task Manager</h1>
       <StatsBar stats={stats} clearAllTasks={clearAllTasks} />
       <FilterBar
         filter={filter}
