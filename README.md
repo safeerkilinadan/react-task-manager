@@ -1,38 +1,40 @@
-🧩 React Task Manager
+## 🧩 React Task Manager
 
 A simple and modern React Task Manager built using Atomic Design principles.
 Features include task creation, status updates, filtering, and persistent storage with localStorage.
 
----
-
-🚀 Features
-
-🧱 Atomic Design structure (atoms → molecules → organisms → templates → pages)
-
-✅ Add, update, and clear tasks
-
-🎨 Dynamic button styling based on task status
-
-💾 Data persistence using localStorage
-
-📱 Responsive and minimal UI
+👉 **Live Demo:** [https://safeerkilinadan.github.io/react-task-manager](https://safeerkilinadan.github.io/react-task-manager)  
 
 ---
 
+## 🚀 Features
 
-🛠️ Tech Stack
+🧱 **Atomic Design structure** — (atoms → molecules → organisms → templates → pages)
 
-React (Vite)
+✅ **Add, update, and clear tasks**
 
-JavaScript (ES6+)
+🎨 **Dynamic button styling based on task status**
 
-CSS3
+💾 **Data persistence using localStorage**
 
-localStorage API
+📱 **Responsive and minimal UI**
 
 ---
 
-⚙️ Setup
+
+## 🛠️ Tech Stack
+
+**React (Vite)**
+
+**JavaScript (ES6+)**
+
+**CSS3**
+
+**localStorage API**
+
+---
+
+## ⚙️ Setup
 
 # Clone the repository
 git clone https://github.com/safeerkilinadan/react-task-manager.git
@@ -47,7 +49,7 @@ npm install
 npm run dev
 ---
 
-🧠 Project Structure
+## 🧠 Project Structure
 src/
 ├── components/
 │   ├── atoms/
