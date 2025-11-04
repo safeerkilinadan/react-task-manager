@@ -1,7 +1,7 @@
 import { createSlice, createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
-  tasks: [],
+  tasks: JSON.parse(localStorage.getItem("tasks")) || [],
   filter: "all",
   search: "",
 };
