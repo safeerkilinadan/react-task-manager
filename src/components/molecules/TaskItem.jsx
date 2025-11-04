@@ -30,7 +30,6 @@ export default function TaskItem({ task, updateTaskStatus }) {
   return (
     <div className={`task-item ${task.status}`}>
       <Text>{task.title}</Text>
-      {task.status}
       <Button
         label={task.status === "done" ? "Reset" : "Next"}
         onClick={handleStatusChange}
