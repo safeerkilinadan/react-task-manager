@@ -1,52 +1,39 @@
-import { useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import DashboardTemplate from "../templates/DashboardTemplate";
-import useLocalStorage from "../../hooks/useLocalStoage";
+import {
+  addTask,
+  updateTaskStatus,
+  clearAllTasks,
+  setFilter,
+  setSearch,
+  selectFilteredTasks,
+  selectStats,
+  selectFilter,
+  selectSearch,
+} from "../../store/taskSlice";
 
 export default function DashboardPage() {
-  const [tasks, setTasks] = useLocalStorage("tasks", []);
-  const [filter, setFilter] = useState("all");
-  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
 
-  const addTask = (title) => {
-    const newTask = { id: Date.now(), title, status: "todo" };
-    setTasks([...tasks, newTask]);
-  };
-
-  const updateTaskStatus = (id, newStatus) => {
-    setTasks(tasks.map((t) => (t.id === id ? { ...t, status: newStatus } : t)));
-  };
-
-  const clearAllTasks = () => {
-    if (window.confirm("Are you sure you want to clear all tasks?")) {
-      setTasks([]);
-      localStorage.removeItem("tasks");
-    }
-  };
-
-  const filteredTasks = tasks.filter((task) => {
-    const matchesFilter = filter === "all" || task.status === filter;
-    const matchesSearch = task.title
-      .toLowerCase()
-      .includes(search.toLowerCase());
-    return matchesFilter && matchesSearch;
-  });
-
-  const stats = {
-    total: tasks.length,
-    completed: tasks.filter((t) => t.status === "done").length,
-  };
+  const tasks = useSelector(selectFilteredTasks);
+  const stats = useSelector(selectStats);
+  const filter = useSelector(selectFilter);
+  const search = useSelector(selectSearch);
 
   return (
     <DashboardTemplate
-      tasks={filteredTasks}
-      addTask={addTask}
-      updateTaskStatus={updateTaskStatus}
+      tasks={tasks}
+      addTask={(title) => dispatch(addTask(title))}
+      updateTaskStatus={(id, newStatus) =>
+        dispatch(updateTaskStatus({ id, newStatus }))
+      }
+      clearAllTasks={() => dispatch(clearAllTasks())}
       filter={filter}
-      setFilter={setFilter}
+      setFilter={(val) => dispatch(setFilter(val))}
       search={search}
-      setSearch={setSearch}
+      setSearch={(val) => dispatch(setSearch(val))}
       stats={stats}
-      clearAllTasks={clearAllTasks}
     />
   );
 }
