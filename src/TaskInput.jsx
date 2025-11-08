@@ -1,8 +1,6 @@
 import { useState } from "react";
-import Input from "../atoms/Input";
-import Button from "../atoms/Button";
 
-export default function TaskForm({ addTask }) {
+export default function TaskInput({ addTask }) {
   const [text, setText] = useState("");
 
   const handleAdd = () => {
@@ -13,12 +11,13 @@ export default function TaskForm({ addTask }) {
 
   return (
     <div className="task-input">
-      <Input
-        placeholder="Enter new task..."
+      <input
+        type="text"
+        placeholder="Enter a new task..."
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <Button label="Add Task" onClick={handleAdd} />
+      <button className="btn-add" onClick={handleAdd}>Add Task</button>
     </div>
   );
 }
